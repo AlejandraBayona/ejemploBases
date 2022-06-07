@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Autor;
+use App\Http\Requests\NuevoAutorRequest;
 
 class AutorController extends Controller
 {
@@ -18,12 +19,14 @@ class AutorController extends Controller
 
     }
 
-    public function create(Request $request){
+    public function create(NuevoAutorRequest $request){
+
+        $request->validated();
 
         $autor= new Autor([
 
           'nombre'=>$request->nombre,
-          'estado'=>$request->estado
+          'estado'=>1
 
         ]);
 

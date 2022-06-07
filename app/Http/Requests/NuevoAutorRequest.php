@@ -13,7 +13,7 @@ class NuevoAutorRequest extends FormRequest
      */
     protected function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,16 @@ class NuevoAutorRequest extends FormRequest
     protected function rules(): array
     {
         return [
-            //
+            'nombre'=>[
+                'required'
+            ]
         ];
+    }
+    function messages(): array{
+
+        return[
+            'nombre.required'=>'El nombre del autor es requerido'
+        ];
+
     }
 }
