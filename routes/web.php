@@ -16,3 +16,14 @@
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
+
+$router->get('/autores', 'Autorcontroller@getAll');
+
+$router->post('/autores/new', 'Autorcontroller@create');
+
+$router->delete('/autores/{id}', 'Autorcontroller@eliminar');
+
+$router->get('/autores/{id}', 'Autorcontroller@getById');
+
+
+$router->put('/autores/update/{id}', 'Autorcontroller@update');
